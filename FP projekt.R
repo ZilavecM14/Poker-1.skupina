@@ -4,29 +4,37 @@ X <- runif(1000, min=0, max=1)
 Y <- runif(1000, min=0, max=1)
 
 #La Relance
-R1 <- c()
-R2 <- c()
+R1 <- c() #dobiček/izguba posamezne igre 1.igralca
+R2 <- c() #dobiček/izguba posamezne igre 2.igralca
 B <- 10 #predpostavimo, da je B=1
-V1 <- -(B^2)/(B+2)^2
-c1 <- B/(B+2)
+V1 <- -(B^2)/(B+2)^2 #vrednost igre za 1.igralca 
+c1 <- B/(B+2) #mejna vrednost za stavo 
+Z1 <- 0 #število zmag 1.igralca
+Z2 <- 0 #število zmag 2.igralca
 
-for (x in X[]){
-  for (y in Y[]){
-    if (x > c1^2){
-      if (y > c1){
-        if (x > y){
-          R1[] = (B+1)
-          R2[] = -(B+1)}
+for (i in 1:length(X)){
+  for (x in X[i]){
+    for (y in Y[i]){
+      if (x > c1^2){
+        if (y > c1){
+          if (x > y){
+            R1[i] = (B+1)
+            R2[i] = -(B+1)
+            Z1 = Z1+1}
+          else
+            R1[i] = -(B+1)
+            R2[i] = (B+1)
+            Z2 = Z2+1}
         else
-          R1[] = -(B+1)
-          R2[] = (B+1)}
-      else
-        R1[] = 1 
-        R2[] = -1
-    }else{
-      R1[] = -1
-      R2[] = 1 
-}}}
+          R1[i] = 1 
+          R2[i] = -1
+          Z1 = Z1+1
+      }else{
+        R1[i] = -1
+        R2[i] = 1 
+        Z2 = Z2+1
+    }}}}
+
 
 #Von Neumman
 M1 <- c()
