@@ -13,27 +13,25 @@ Z1 <- 0 #število zmag 1.igralca
 Z2 <- 0 #število zmag 2.igralca
 
 for (i in 1:length(X)){
-  for (x in X[i]){
-    for (y in Y[i]){
-      if (x > c1^2){
-        if (y > c1){
-          if (x > y){
-            R1[i] = (B+1)
-            R2[i] = -(B+1)
-            Z1 = Z1+1}
-          else
-            R1[i] = -(B+1)
-            R2[i] = (B+1)
-            Z2 = Z2+1}
-        else
-          R1[i] = 1 
-          R2[i] = -1
-          Z1 = Z1+1
-      }else{
-        R1[i] = -1
-        R2[i] = 1 
-        Z2 = Z2+1
-    }}}}
+  if (X[i] > c1^2){
+    if (Y[i] > c1){
+      if (X[i] > Y[i]){
+        R1[i] = (B+1)
+        R2[i] = -(B+1)
+        Z1 = Z1+1}
+      else{
+        R1[i] = -(B+1)
+        R2[i] = (B+1)
+        Z2 = Z2+1}}
+    else{
+      R1[i] = 1 
+      R2[i] = -1
+      Z1 = Z1+1}
+  }else{
+    R1[i] = -1
+    R2[i] = 1 
+    Z2 = Z2+1
+    }}
 
 
 #Von Neumman
@@ -47,29 +45,27 @@ W1 <- 0 #število zmag 1.igralca
 W2 <- 0 #število zmag 2.igralca
 
 for (j in 1:length(X)){
-  for (v in X[j]){
-    for (u in Y[j]){
-      if (v > b | v < a){
-        if (u > c){
-          if (v > u){
-            M1[j] = (B+1)
-            M2[j] = -(B+1)
-            W1 = W1+1}
-          else
-            M1[j] = -(B+1)
-            M2[j] = (B+1)
-            W2 = W2+1}
-        else
-          M1[j] = 1 
-          M2[j] = -1
-          W1 = W1+1
-      }else{
-        if (v > u){
-          M1[j] = 1
-          M2[j] = -1
-          W1 = W1+1}
-        else{
-          M1[j] = -1
-          M2[j] = 1
-          W2 = W2+1} 
-    }}}}
+  if (X[j] > b | X[j] < a){
+    if (Y[j] > c){
+      if (X[j] > Y[j]){
+        M1[j] = (B+1)
+        M2[j] = -(B+1)
+        W1 = W1+1}
+      else{
+        M1[j] = -(B+1)
+        M2[j] = (B+1)
+        W2 = W2+1}}
+    else{
+      M1[j] = 1 
+      M2[j] = -1
+      W1 = W1+1}
+  }else{
+    if (X[j] > Y[j]){
+      M1[j] = 1
+      M2[j] = -1
+      W1 = W1+1}
+    else{
+      M1[j] = -1
+      M2[j] = 1
+      W2 = W2+1} 
+    }}
