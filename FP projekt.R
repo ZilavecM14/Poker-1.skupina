@@ -43,25 +43,33 @@ V2 <- B/((B+1)*(B+4))
 a <- B/((B+1)*(B+4))
 b <- (B^2+4*B+2)/((B+1)*(B+4))
 c <- (B*(B+3))/((B+1)*(B+4))
+W1 <- 0 #število zmag 1.igralca
+W2 <- 0 #število zmag 2.igralca
 
-for (v in X[]){
-  for (u in Y[]){
-    if (v > b | v < a){
-      if (u > c){
-        if (v > u){
-          M1[] = (B+1)
-          M2[] = -(B+1)}
+for (j in 1:length(X)){
+  for (v in X[j]){
+    for (u in Y[j]){
+      if (v > b | v < a){
+        if (u > c){
+          if (v > u){
+            M1[j] = (B+1)
+            M2[j] = -(B+1)
+            W1 = W1+1}
+          else
+            M1[j] = -(B+1)
+            M2[j] = (B+1)
+            W2 = W2+1}
         else
-          M1[] = -(B+1)
-          M2[] = (B+1)}
-      else
-        M1[] = 1 
-        M2[] = -1
-    }else{
-      if (v > u){
-        M1[] = 1
-        M2[] = -1}
-      else{
-        M1[] = -1
-        M2[] = 1} 
-    }}}
+          M1[j] = 1 
+          M2[j] = -1
+          W1 = W1+1
+      }else{
+        if (v > u){
+          M1[j] = 1
+          M2[j] = -1
+          W1 = W1+1}
+        else{
+          M1[j] = -1
+          M2[j] = 1
+          W2 = W2+1} 
+    }}}}
