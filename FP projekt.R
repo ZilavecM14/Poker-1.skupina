@@ -8,7 +8,7 @@ R1 <- c() #dobiček/izguba posamezne igre 1.igralca
 R2 <- c() #dobiček/izguba posamezne igre 2.igralca
 Rprvega <- c(0) #Spreminjaje dobička skozi igre 1.igralca
 Rdrugega <- c(0) #Spreminjaje dobička skozi igre 2.igralca
-B <- 5 #predpostavimo, da je B=1
+B <- 10 #predpostavimo, da je B=5
 V1 <- -(B^2)/(B+2)^2 #vrednost igre za 1.igralca 
 c1 <- B/(B+2) #mejna vrednost za stavo 
 Z1 <- 0 #število zmag 1.igralca
@@ -43,13 +43,13 @@ for (i in 1:length(X)){
     Z2 = Z2+1
   }}
 
-plot(Rprvega,type='l')
-plot(Rdrugega,type='l')
+plot(Rprvega,type='l',col='blue',main='La relance dobiček/izguba',xlab = 'Število iger', ylab = 'Dobiček/izguba 1.igralca')
+plot(Rdrugega,type='l',col='hot pink',main='La relance dobiček/izguba',xlab = 'Število iger', ylab = 'Dobiček/izguba 2.igralca')
 
 Dobicek1 <- sum(R1)
 Dobicek2 <- sum(R2)
 
-#Von Neumman
+#Von Neumann
 M1 <- c() #dobiček/izguba posamezne igre 1.igralca
 M2 <- c() #dobiček/izguba posamezne igre 2.igralca
 Mprvega <- c(0) #Spreminjaje dobička skozi igre 1.igralca
@@ -97,8 +97,8 @@ for (j in 1:length(X)){
       W2 = W2+1} 
   }}
 
-plot(Mprvega,type='l')
-plot(Mdrugega,type='l')
+plot(Mprvega,type='l',col='blue',main='Von Neumann dobiček/izguba',xlab = 'Število iger', ylab = 'Dobiček/izguba 1.igralca')
+plot(Mdrugega,type='l',col='hot pink',main='Von Neumann dobiček/izguba',xlab = 'Število iger', ylab = 'Dobiček/izguba 2.igralca')
 
 DobicekPrvega <- sum(M1)
 DobicekDrugega <- sum(M2)
@@ -118,4 +118,10 @@ for (k in 1:length(R1)){
 }
 
 T=sum(t)
-plot(t1,type='l')
+plot(t1,type='l',col='purple',main='Primerjava št. zmag glede na model',xlab = 'Število iger', ylab = 'Razlika v številu zmag')
+
+plot(Rprvega,type='l',col='orange',main='La relance dobiček/izguba',xlab = 'Število iger', ylab = 'Dobiček/izguba 1.igralca', ylim= c(-80,20))
+lines(Mprvega, type='l',col='dark green')
+legend('bottomleft', col= c('orange','dark green'), legend=c('La relance','Von Neumann'),lty = 1:1)
+
+
