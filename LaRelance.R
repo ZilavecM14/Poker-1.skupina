@@ -51,16 +51,16 @@ LaRelance <- function(st1, st2, B, n = 100) {
       Rdrugega[i+1] = Rdrugega[i]+1
       Z2 = Z2+1
     }
+  Z1
+  sum(R1)
   }
   # končni izračuni, risanje grafov
-  return(Z1)
-  return(Z2)
-  
-  sum(R1)
-  sum(R2)
-  
   plot(Rprvega,type='l',col='blue',main='La relance dobiček/izguba',xlab = 'Število iger', ylab = 'Dobiček/izguba 1.igralca')
-  plot(Rdrugega,type='l',col='hot pink',main='La relance dobiček/izguba',xlab = 'Število iger', ylab = 'Dobiček/izguba 2.igralca')
 }
 
 V1 <- -(B^2)/(B+2)^2 #vrednost igre za 1.igralca 
+Z2
+
+
+sum(R1)
+sum(R2)
