@@ -10,6 +10,8 @@ LaRelance.opt2 <- function(Y, c1) {
   return(Y > c1)
 }
 
+Karkoli1 <- function(X, )
+
 LaRelance <- function(st1, st2, B, n = 100) {
   X <- runif(n, min=0, max=1)
   Y <- runif(n, min=0, max=1)
@@ -51,15 +53,14 @@ LaRelance <- function(st1, st2, B, n = 100) {
       Rdrugega[i+1] = Rdrugega[i]+1
       Z2 = Z2+1
     }
-  Z1
-  sum(R1)
   }
   # končni izračuni, risanje grafov
   plot(Rprvega,type='l',col='blue',main='La relance dobiček/izguba',xlab = 'Število iger', ylab = 'Dobiček/izguba 1.igralca')
+  return(c(Z1,sum(R1)))
 }
 
 V1 <- -(B^2)/(B+2)^2 #vrednost igre za 1.igralca 
-Z2
+
 
 
 sum(R1)
