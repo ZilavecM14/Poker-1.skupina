@@ -8,7 +8,7 @@ R1 <- c() #dobiček/izguba posamezne igre 1.igralca
 R2 <- c() #dobiček/izguba posamezne igre 2.igralca
 Rprvega <- c(0) #Spreminjaje dobička skozi igre 1.igralca
 Rdrugega <- c(0) #Spreminjaje dobička skozi igre 2.igralca
-B <- 10 #predpostavimo, da je B=5
+B <- 5 #predpostavimo, da je B=1
 V1 <- -(B^2)/(B+2)^2 #vrednost igre za 1.igralca 
 c1 <- B/(B+2) #mejna vrednost za stavo 
 Z1 <- 0 #število zmag 1.igralca
