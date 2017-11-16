@@ -10,22 +10,30 @@ LaRelance.opt2 <- function(Y, c1) {
   return(Y > c1)
 }
 
-# naključna izbira vrednosti pri kateri bo stavil 1.igralec
-Karkoli1 <- function(X, random1) {
-  return(X > random1)
+#naključna izbira za prvega igralca pri La Relance
+nakljucno1 <- function(X, c1) {
+  return(runif(1) > 0.5)
 }
 
-# naključna izbira vrednosti pri kateri bo stavil 2.igralec
-Karkoli2 <- function(Y, random2) {
-  return(Y > random2)
+#naključna izbira za drugega igralca pri La Relance
+nakljucno2 <- function(Y, c1) {
+  return(runif(1) > 0.5)
+}
+
+#Stavi, če X večji od 0.5
+Polovicka1 <- function(X, c1) {
+  return(X > 0.5)
+}
+
+#Stavi, če Y večji od 0.5
+Polovicka2 <- function(Y, c1) {
+  return(Y > 0.5)
 }
 
 LaRelance <- function(st1, st2, B, n = 100) {
   X <- runif(n, min=0, max=1)
   Y <- runif(n, min=0, max=1)
   c1 <- B/(B+2) #mejna vrednost za stavo 
-  random1 <- runif(n, min=0, max=1)
-  random2 <- runif(n, min=0, max=1)
   R1 <- c() #dobiček/izguba posamezne igre 1.igralca
   R2 <- c() #dobiček/izguba posamezne igre 2.igralca
   Rprvega <- c(0) #Spreminjaje dobička skozi igre 1.igralca

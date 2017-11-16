@@ -10,7 +10,26 @@ VonNeumann.opt2 <- function(Y, c) {
   return(Y > c)
 }
 
-VonNeumann <- function(st1, st2, B, n = 1000) {
+nakljucnoPrvi <- function(X, a, b) {
+  return(runif(1) > 0.5 | runif(1) < 0.1)
+}
+
+nakljucnoDrugi <- function(Y, c) {
+  return(runif(1) > 0.5)
+}
+
+#Stavi, če X večji od 0.5
+Polovica1 <- function(X, a, b) {
+  return(X > 0.5)
+}
+
+#Stavi, če Y večji od 0.5
+Polovica2 <- function(Y, c) {
+  return(Y > 0.5)
+}
+
+
+VonNeumann <- function(st1, st2, B, n = 100) {
   X <- runif(n, min=0, max=1)
   Y <- runif(n, min=0, max=1)
   a <- B/((B+1)*(B+4))
