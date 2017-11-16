@@ -38,7 +38,7 @@ Inter1 <- function(X, a, b) {
     return(runif(1, min = a, max=(a+b)/2) > 0.8*((a+b)/2 - a))
   }
   else if (X>(a+b)/2 & X<b){
-    return(runif(1, min = a, max=(a+b)/2) > 0.8*((b - (a+b)/2)))
+    return(runif(1, min = (a+b)/2, max=b) > 0.8*((b - (a+b)/2)))
   }
   else{
     return(runif(1, min = b, max=1) > 0.1*(1-b))
