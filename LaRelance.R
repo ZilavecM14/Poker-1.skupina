@@ -30,6 +30,25 @@ Polovicka2 <- function(Y, c1) {
   return(Y > 0.5)
 }
 
+#Interpolacija za prvega
+Interpolacija1 <- function(X, c1) {
+  if (X < (c1^2)){
+    return(runif(c1^2) > 0.8*(c1^2))
+  }
+  else{
+    return(runif(1, min = (c1^2),max=1) > 0.1*(1-(c1^2)))
+  }
+}
+
+#Interpolacija za drugega
+Interpolacija2 <- function(Y, c1) {
+  if (Y < (c1)){
+    return(runif(c1) > 0.8*(c1))
+  }else{
+    return(runif(1, min = (c1),max=1) > 0.1*(1-c1))
+  }
+}
+
 LaRelance <- function(st1, st2, B, n = 100) {
   X <- runif(n, min=0, max=1)
   Y <- runif(n, min=0, max=1)

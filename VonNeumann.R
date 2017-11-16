@@ -5,15 +5,17 @@ VonNeumann.opt1 <- function(X, a, b) {
   return(X > b | X < a)
 }
 
-# optimalna strategija za drugega igralca pri La Relance
+# optimalna strategija za drugega igralca pri Von Neumannu
 VonNeumann.opt2 <- function(Y, c) {
   return(Y > c)
 }
 
+#naključna izbira za prvega igralca pri Von Neumannu
 nakljucnoPrvi <- function(X, a, b) {
-  return(runif(1) > 0.5 | runif(1) < 0.1)
+  return(runif(1) > 0.5)
 }
 
+#naključna izbira za drugega igralca pri Von Neumannu
 nakljucnoDrugi <- function(Y, c) {
   return(runif(1) > 0.5)
 }
