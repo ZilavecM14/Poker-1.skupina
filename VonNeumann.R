@@ -29,7 +29,30 @@ Polovica1 <- function(X, a, b) {
 Polovica2 <- function(Y, c) {
   return(Y > 0.5)
 }
+#Interpolacija za prvega
+Inter1 <- function(X, a, b) {
+  if (X < a){
+    return(runif(1, min = 0, max=a) > 0.2*a)
+  }
+  else if (X>a & X<(a+b)/2){
+    return(runif(1, min = a, max=(a+b)/2) > 0.8*((a+b)/2 - a))
+  }
+  else if (X>(a+b)/2 & X<b){
+    return(runif(1, min = a, max=(a+b)/2) > 0.8*((b - (a+b)/2)))
+  }
+  else{
+    return(runif(1, min = b, max=1) > 0.1*(1-b))
+  }
+}
 
+#Interpolacija za drugega
+Inter2 <- function(Y, c) {
+  if (Y < (c)){
+    return(runif(1, min = 0, max = c) > 0.8*(c))
+  }else{
+    return(runif(1, min = c,max=1) > 0.1*(1-c))
+  }
+}
 
 VonNeumann <- function(st1, st2, B, n = 100) {
   X <- runif(n, min=0, max=1)
