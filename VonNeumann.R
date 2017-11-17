@@ -32,25 +32,25 @@ Polovica2 <- function(Y, c) {
 #Interpolacija za prvega
 Inter1 <- function(X, a, b) {
   if (X < a){
-    return(runif(1, min = 0, max=a) > 0.2*a)
+    return(runif(1, min = 0, max=a) > X/2)
   }
   else if (X>a & X<(a+b)/2){
-    return(runif(1, min = a, max=(a+b)/2) > 0.8*((a+b)/2 - a))
+    return(runif(1, min = a, max=(a+b)/2) > (X+1)/2)
   }
   else if (X>(a+b)/2 & X<b){
-    return(runif(1, min = (a+b)/2, max=b) > 0.8*((b - (a+b)/2)))
+    return(runif(1, min = (a+b)/2, max=b) < X/2)
   }
   else{
-    return(runif(1, min = b, max=1) > 0.1*(1-b))
+    return(runif(1, min = b, max=1) < (X+1)/2)
   }
 }
 
 #Interpolacija za drugega
 Inter2 <- function(Y, c) {
   if (Y < (c)){
-    return(runif(1, min = 0, max = c) > 0.8*(c))
+    return(runif(1, min = 0, max = c) < Y/2)
   }else{
-    return(runif(1, min = c,max=1) > 0.1*(1-c))
+    return(runif(1, min = c,max=1) < (Y+1)/2)
   }
 }
 

@@ -33,19 +33,19 @@ Polovicka2 <- function(Y, c1) {
 #Interpolacija za prvega
 Interpolacija1 <- function(X, c1) {
   if (X < (c1^2)){
-    return(runif(1, min = 0, max=c1^2) > 0.8*(c1^2))
+    return(runif(1, min = 0, max=c1^2) < X/2)
   }
   else{
-    return(runif(1, min = (c1^2), max=1) > 0.1*(1-(c1^2)))
+    return(runif(1, min = (c1^2), max=1) < (X+1)/2)
   }
 }
 
 #Interpolacija za drugega
 Interpolacija2 <- function(Y, c1) {
   if (Y < (c1)){
-    return(runif(1, min = 0, max = c1) > 0.8*(c1))
+    return(runif(1, min = 0, max = c1) < Y/2)
   }else{
-    return(runif(1, min = (c1),max=1) > 0.1*(1-c1))
+    return(runif(1, min = (c1),max=1) < (Y+1)/2)
   }
 }
 
