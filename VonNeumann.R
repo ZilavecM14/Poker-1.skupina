@@ -29,16 +29,17 @@ Polovica1 <- function(X, a, b) {
 Polovica2 <- function(Y, c) {
   return(Y > 0.5)
 }
+
 #Interpolacija za prvega
 Inter1 <- function(X, a, b) {
   if (X < a){
     return(runif(1, min = 0, max=a) > X/2)
   }
-  else if (X>a & X<(a+b)/2){
-    return(runif(1, min = a, max=(a+b)/2) > (X+1)/2)
+  else if (X >= a & X < (a+b)/2){
+    return(runif(1, min = a, max=(a+b)/2) > (X+(a+b)/2)/2)
   }
-  else if (X>(a+b)/2 & X<b){
-    return(runif(1, min = (a+b)/2, max=b) < X/2)
+  else if (X >= (a+b)/2 & X < b){
+    return(runif(1, min = (a+b)/2, max=b) < (X+(a+b)/2)/2)
   }
   else{
     return(runif(1, min = b, max=1) < (X+1)/2)
