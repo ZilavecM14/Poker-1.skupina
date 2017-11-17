@@ -50,8 +50,8 @@ Interpolacija2 <- function(Y, c1) {
 }
 
 LaRelance <- function(st1, st2, B, n = 1000) {
-  X <- runif(n, min=0, max=1)
-  Y <- runif(n, min=0, max=1)
+  X <- runif(n, min=0, max=1) #Naključna vrednost, ki jo dobi prvi
+  Y <- runif(n, min=0, max=1) #Naključna vrednost, ki jo dobi drugi
   c1 <- B/(B+2) #mejna vrednost za stavo 
   R1 <- c() #dobiček/izguba posamezne igre 1.igralca
   R2 <- c() #dobiček/izguba posamezne igre 2.igralca
@@ -63,13 +63,13 @@ LaRelance <- function(st1, st2, B, n = 1000) {
     if (st1(X[i], c1)) { #prvi igralec je stavil
       if (st2(Y[i], c1)) {
         # drugi igralec je izenačil
-        if (X[i] > Y[i]){
+        if (X[i] > Y[i]){ #Primerjata in prvi ima večjo vrednost
           R1[i] = (B+1)
           Rprvega[i+1] = Rprvega[i]+(B+1)
           R2[i] = -(B+1)
           Rdrugega[i+1] = Rdrugega[i]-(B+1)
           Z1 = Z1+1}
-        else{
+        else{ #Primerjata in drugi ima večno vrednost
           R1[i] = -(B+1)
           Rprvega[i+1] = Rprvega[i]-(B+1)
           R2[i] = (B+1)
