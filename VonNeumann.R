@@ -55,12 +55,12 @@ Inter2 <- function(Y, c) {
   }
 }
 
-VonNeumann <- function(st1, st2, B, n = 100) {
-  X <- runif(n, min=0, max=1)
-  Y <- runif(n, min=0, max=1)
-  a <- B/((B+1)*(B+4))
-  b <- (B^2+4*B+2)/((B+1)*(B+4))
-  c <- (B*(B+3))/((B+1)*(B+4))
+VonNeumann <- function(st1, st2, B, n = 1000) {
+  X <- runif(n, min=0, max=1) #Naključna vrednost, ki jo dobi prvi
+  Y <- runif(n, min=0, max=1) #Naključna vrednost, ki jo dobi drugi
+  a <- B/((B+1)*(B+4)) #Spodnja meja za stavo 1.igralca
+  b <- (B^2+4*B+2)/((B+1)*(B+4)) #Zgornja meja za stavo 1.igralca
+  c <- (B*(B+3))/((B+1)*(B+4)) #Meja za stavo 2.igralca
   M1 <- c() #dobiček/izguba posamezne igre 1.igralca
   M2 <- c() #dobiček/izguba posamezne igre 2.igralca
   Mprvega <- c(0) #Spreminjaje dobička skozi igre 1.igralca
@@ -71,13 +71,13 @@ VonNeumann <- function(st1, st2, B, n = 100) {
     if (st1(X[j], a,b)) { #prvi igralec je stavil
       if (st2(Y[j], c)) {
         # drugi igralec je izenačil
-        if (X[j] > Y[j]){
+        if (X[j] > Y[j]){ #Primerjata in prvi ima večjo vrednost
           M1[j] = (B+1)
           M2[j] = -(B+1)
           Mprvega[j+1] = Mprvega[j]+(B+1)
           Mdrugega[j+1] = Mdrugega[j]-(B+1)
           W1 = W1+1}
-        else{
+        else{ #Primerjata in drugi ima večno vrednost
           M1[j] = -(B+1)
           M2[j] = (B+1)
           Mprvega[j+1] = Mprvega[j]-(B+1)

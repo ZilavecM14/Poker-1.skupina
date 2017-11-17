@@ -49,7 +49,7 @@ Interpolacija2 <- function(Y, c1) {
   }
 }
 
-LaRelance <- function(st1, st2, B, n = 100) {
+LaRelance <- function(st1, st2, B, n = 1000) {
   X <- runif(n, min=0, max=1)
   Y <- runif(n, min=0, max=1)
   c1 <- B/(B+2) #mejna vrednost za stavo 
